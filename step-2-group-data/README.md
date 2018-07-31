@@ -20,6 +20,6 @@ mvn package
 ```
 
 ### Run
-Given an HDFS input directory of `hive_output`:
+Given an HDFS input directory of `hive_output` (i.e. the output directory from step 1):
 
 `hadoop jar target/group-data-1.0-SNAPSHOT-jar-with-dependencies.jar hive_output groupedData`
