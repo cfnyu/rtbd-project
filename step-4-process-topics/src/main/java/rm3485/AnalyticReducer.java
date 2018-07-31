@@ -38,11 +38,6 @@ public class AnalyticReducer extends Reducer<Text, Text, Text, NullWritable> {
       String output = sb.toString();
       String final_output = output.substring(0, output.length() - 1);
       context.write(new Text(final_output), NullWritable.get());
-    }else{
-      for(Text t : values){
-        context.write(t, NullWritable.get());
-      }
     }
-
   }
 }

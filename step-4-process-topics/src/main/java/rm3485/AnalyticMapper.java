@@ -115,7 +115,7 @@ public class AnalyticMapper extends Mapper<LongWritable, Text, Text, Text> {
     }
   }
   }catch(Exception e){
-      context.write(new Text("ERROR"), new Text(e.getMessage()));
+      System.out.println(e.getMessage());
     }
   }
 }
