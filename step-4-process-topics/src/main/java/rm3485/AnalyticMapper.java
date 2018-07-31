@@ -52,7 +52,7 @@ public class AnalyticMapper extends Mapper<LongWritable, Text, Text, Text> {
         int score = Integer.parseInt(split[1]);
 
         // Only want popular questions
-        if(score > 50){
+        if(score > 15){
            String title = split[2];
            String[] tagList = split[3].trim().split(" ");
 
