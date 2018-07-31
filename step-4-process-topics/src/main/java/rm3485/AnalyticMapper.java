@@ -49,11 +49,10 @@ public class AnalyticMapper extends Mapper<LongWritable, Text, Text, Text> {
       String[] split = line.split(",");
       if(split.length >= 5){
         String questionId = split[0];
-        // TODO: Filter questions by score?
         int score = Integer.parseInt(split[1]);
 
-        if(score > 8){
-
+        // Only want popular questions
+        if(score > 50){
            String title = split[2];
            String[] tagList = split[3].trim().split(" ");
 
