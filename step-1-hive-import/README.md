@@ -26,7 +26,7 @@ Start by selecting a database to load the data
 use YOUR_DATABASE;
 ```
 
-Next step is to create the table in preperation for the data import
+Next step is to create the table in preparation for the data import
 ```sql
 CREATE TABLE new_table (commit string, tree string,parent array<string>, author map<string,string>, committer map<string,string>, subject string, message string, trailer array<struct<string:string>>,difference array<string>, repo_name array<string>) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe' STORED AS TEXTFILE;
 ```
