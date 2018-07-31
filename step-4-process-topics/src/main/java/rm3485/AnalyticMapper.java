@@ -45,68 +45,72 @@ public class AnalyticMapper extends Mapper<LongWritable, Text, Text, Text> {
     String line = value.toString();
     String[] split = line.split(",");
     if(split.length >= 5){
-      String questionId = split[0];
-      int score = Integer.parseInt(split[1]);
-      String title = split[2];
-      String[] tagList = split[3].trim().split(" ");
+      try{
+        String questionId = split[0];
+        int score = Integer.parseInt(split[1]);
+        String title = split[2];
+        String[] tagList = split[3].trim().split(" ");
 
-      // Rebuild body after "," split
-      StringBuilder bodyBuilder = new StringBuilder();
-      if(split.length > 5){
-        for(int i = 4; i < split.length; i++){
-          bodyBuilder.append(split[i]);
+        // Rebuild body after "," split
+        StringBuilder bodyBuilder = new StringBuilder();
+        if(split.length > 5){
+          for(int i = 4; i < split.length; i++){
+            bodyBuilder.append(split[i]);
+          }
+        }else{
+          bodyBuilder.append(split[4]);
         }
-      }else{
-        bodyBuilder.append(split[4]);
-      }
-      String body = bodyBuilder.toString();
+        String body = bodyBuilder.toString();
 
-      // Split tags by space and add to arraylist
-      ArrayList<String> tags = new ArrayList<String>();
-      if(tagList.length > 1){ // several tags
-        for(String itm : tagList){
-          tags.add(itm);
+        // Split tags by space and add to arraylist
+        ArrayList<String> tags = new ArrayList<String>();
+        if(tagList.length > 1){ // several tags
+          for(String itm : tagList){
+            tags.add(itm);
+          }
+        }else{ //only one tag
+          tags.add(tagList[0]);
         }
-      }else{ //only one tag
-        tags.add(tagList[0]);
-      }
 
-      // For each topic, generate a weight for the SO question
-      Iterator<String> it = topics.iterator();
-      while(it.hasNext()){
-        String[] data = it.next().split(":"); //date:topic
-        String date = data[0].trim();
-        String topic = data[1].trim();
-        String count = data[2].trim();
-        double weight = 0.0;
+        // For each topic, generate a weight for the SO question
+        Iterator<String> it = topics.iterator();
+        while(it.hasNext()){
+          String[] data = it.next().split(":"); //date:topic
+          String date = data[0].trim();
+          String topic = data[1].trim();
+          String count = data[2].trim();
+          double weight = 0.0;
 
-        if(body.contains(topic)){
-          weight += topicInBody;
-        }
-        if(title.contains(topic)){
-          weight += topicInTitle;
-        }
-        Iterator<String> tags_it = tags.iterator();
-        while(tags_it.hasNext()){
-          String tag = tags_it.next();
-          if(topic.equals(tag)){
-            weight += topicEqualsTag;
+          if(body.contains(topic)){
+            weight += topicInBody;
+          }
+          if(title.contains(topic)){
+            weight += topicInTitle;
+          }
+          Iterator<String> tags_it = tags.iterator();
+          while(tags_it.hasNext()){
+            String tag = tags_it.next();
+            if(topic.equals(tag)){
+              weight += topicEqualsTag;
+            }
+          }
+          if(score >= 7 && score <= 20){
+            weight += scoreInRange;
+          }else if(score < 7){
+            weight += scoreBelowRange;
+          }else{
+            weight += scoreAboveRange;
+          }
+
+          String weightString = Double.toString(weight);
+          if(weight > 0.0 && weightString.length() > 0  && questionId.length() > 0){
+            String output_value =  weightString + ":" + questionId;
+            String output_key = date + ":" + topic;
+            context.write(new Text(output_key), new Text(output_value));
           }
         }
-        if(score >= 7 && score <= 20){
-          weight += scoreInRange;
-        }else if(score < 7){
-          weight += scoreBelowRange;
-        }else{
-          weight += scoreAboveRange;
-        }
-
-        String weightString = Double.toString(weight);
-        if(weight > 0.0 && weightString.length() > 0  && questionId.length() > 0){
-          String output_value =  weightString + ":" + questionId;
-          String output_key = date + ":" + topic;
-          context.write(new Text(output_key), new Text(output_value));
-        }
+      }catch(Exception e){
+        System.out.println("Error: " + e.toString());
       }
     }
   }
