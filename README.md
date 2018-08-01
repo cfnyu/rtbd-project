@@ -5,7 +5,7 @@
 
 TODO: TAKE THIS FROM THE PAPER
 
-# Requirements
+## Requirements
 
 This code was run on a Hadoop Cluster running hadoop version `2.6.0-cdh5.11.1`. In order to compile this project you will need the following: 
 
