@@ -14,7 +14,7 @@ Given this data, we want to 'group' commit messages and repository languages fro
 where the `...` represents (many!) other message/language repository strings that were committed in September 2016.
 
 ### Build & Run
-Given an HDFS input directory of `hive_output` (i.e. the output directory from step 1):
+Given an HDFS input directory of `hive-cleaned` (i.e. the output directory from step 1):
 ```
 ./run.sh hive-cleaned groupedData
 ```
