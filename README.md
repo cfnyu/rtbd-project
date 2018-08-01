@@ -47,7 +47,7 @@ All step directories, with the exception of step 1, have individual `run.sh` she
   - Output: From MapReduce, `/user/cf86/output/topic_data`
 
 - [Step 4 - Process Topics](step-4-process-topics/README.md)
-  - Input: Stack Overflow Posts (Questions), /user/rm3485/posts-clean
+  - Input: Stack Overflow Posts (Questions), `/user/rm3485/posts-clean`
   - Output: From MapReduce, `/user/rm3485/finalTest`
   - Cached File: From Word Count (Step 3), `/user/cf86/output/topic_data`
 
