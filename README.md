@@ -11,7 +11,7 @@ This code was run on a Hadoop Cluster running hadoop version `2.6.0-cdh5.11.1`. 
 
 - Hadoop version: 2.6.0-cdh5.11.1
 - Maven version: 3.3.3
-- [Jar Dependencies](step-1-hive-import/README.md) for Hive, more information in the Step 1 hive directory
+- [Jar Dependencies](step-1-hive-import/README.md#dependencies) for Hive, more information in the Step 1 hive directory
 - Java: java version "1.8.0_152"
         Java(TM) SE Runtime Environment (build 1.8.0_152-b16)
         Java HotSpot(TM) 64-Bit Server VM (build 25.152-b16, mixed mode)
