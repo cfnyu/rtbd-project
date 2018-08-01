@@ -36,10 +36,10 @@ All step directories, with the exception of step 1, have individual `run.sh` she
 
 - [Step 1 - Hive Import](step-1-hive-import/README.md)
   - Input: From Google, stored /user/cf86/bigQuery
-  - Output: From hive, stored in /user/cf86/hive_output
+  - Output: From hive, stored in /user/cf86/hive-cleaned
 
 - [Step 2 - Group Data](step-2-group-data/README.md)
-  - Input: From hive /user/cf86/hive_output
+  - Input: From hive /user/cf86/hive-cleaned
   - Output: From MapReduce, /user/rm3485/groupedData
 
 - [Step 3 - Word Count](step-3-word-count/README.md)
