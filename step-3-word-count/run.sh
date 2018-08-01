@@ -38,12 +38,6 @@ fi
 
 setup
 
-echo "Executing analytic jar file using Hadoop"
-hadoop jar target/group-data-1.0-SNAPSHOT-jar-with-dependencies.jar $POST_FILES $OUTPUT_DIR $TOPIC_DATA
-
-
-
-
 
 
 
