@@ -17,15 +17,13 @@ Since we want to maintain our date grouping, we must keep the date as the key. H
 In the reducer, we split the topic from the date in the key, and sort the corresponding question list by their weights. We then output  `date:topic:qId1,qId2,....qIdn` to HDFS for a file that contains all the data we need, but is still small enough to download and use in our UI.
 
 
-### Build
-```
-mvn compile
-mvn package
-```
-
-### Run
-Given an input HDFS directory of `posts-clean` and the output file from step 3 called `topic_data`:
+### Build & Run
+Given an input HDFS directory of `posts-clean` and the output file from step 3 stored as `output/topic_data`:
 
 ```
-hadoop jar target/analytic-1.0-SNAPSHOT-jar-with-dependencies.jar posts-clean finalData output/topic_data
+./run.sh posts-clean finalData output/topic_data
+```
+aka
+```
+./run.sh <inputDir> <outputDir> <cachedFile>
 ```
