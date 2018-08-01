@@ -1,4 +1,4 @@
-## Grouping Hive Data
+## Process Topics
 
 ### Overview
 The final step of the project is associating 'topics' found from the word count and associating them with Stack Overflow questions via a weighted search.
