@@ -17,7 +17,7 @@ This code was run on a Hadoop Cluster running hadoop version `2.6.0-cdh5.11.1`. 
         Java HotSpot(TM) 64-Bit Server VM (build 25.152-b16, mixed mode)
 
 ## Directory Structure
-####### More details, for each step, can be found in the individual step folders README files
+###### More details, for each step, can be found in the individual step folders README files
 
 - [step-1-hive-import](step-1-hive-import/README.md): This directory contains a README file with the steps taken to import the GitHub data into HDFS using Hive.
 - [step-2-group-data](step-2-group-data/README.md): This directory contains the code used to process the output of step 1. 
