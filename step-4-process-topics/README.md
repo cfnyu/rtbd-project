@@ -21,7 +21,7 @@ In the reducer, we split the topic from the date in the key, and sort the corres
 Given an input HDFS directory of `posts-clean` and the output file from step 3 stored as `output/topic_data`:
 
 ```
-./run.sh posts-clean finalData output/topic_data
+./run.sh posts-clean finalTest output/topic_data
 ```
 aka
 ```
