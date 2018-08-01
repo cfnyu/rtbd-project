@@ -30,21 +30,21 @@ All step directories, with the exception of step 1, have individual `run.sh` she
 
 ## Data Locations
 
-Step 1 - Hive Import
-    - Input: From Google, stored /user/cf86/bigQuery
-    - Output: From hive, stored in /user/cf86/hive_output
+- [Step 1 - Hive Import](step-1-hive-import/README.md)
+  - Input: From Google, stored /user/cf86/bigQuery
+  - Output: From hive, stored in /user/cf86/hive_output
 
-Step 2 - Group Data
-    - Input: From hive /user/cf86/hive_output
-    - Output: From MapReduce, /user/rm3485/groupedData
+- [Step 2 - Group Data](step-2-group-data/README.md)
+  - Input: From hive /user/cf86/hive_output
+  - Output: From MapReduce, /user/rm3485/groupedData
 
-Step 3 - Word Count
-    - Input: From step 2, /user/rm3485/groupedData
-    - Output: From MapReduce, /user/cf86/output/topic_data
+- [Step 3 - Word Count](step-3-word-count/README.md)
+  - Input: From step 2, /user/rm3485/groupedData
+  - Output: From MapReduce, /user/cf86/output/topic_data
 
-Step 4 - Process Topics
-    - Input: Stack Overflow Posts (Questions), /user/rm3485/posts-clean
-    - Output: From MapReduce, /user/rm3485/finalTest
-    - Cached File: From Word Count (Step 3), /user/cf86/output/topic_data
+- [Step 4 - Process Topics](step-4-process-topics/README.md)
+  - Input: Stack Overflow Posts (Questions), /user/rm3485/posts-clean
+  - Output: From MapReduce, /user/rm3485/finalTest
+  - Cached File: From Word Count (Step 3), /user/cf86/output/topic_data
 
 Final [output file](output-data.txt) can also be found in this repository named `output-data.txt`
