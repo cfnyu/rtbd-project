@@ -27,5 +27,5 @@ mvn package
 Given an input HDFS directory of `posts-clean` and the output file from step 3 called `topic_data`:
 
 ```
-hadoop jar target/analytic-1.0-SNAPSHOT-jar-with-dependencies.jar posts-clean finalData topic_data
+hadoop jar target/analytic-1.0-SNAPSHOT-jar-with-dependencies.jar posts-clean finalData output/topic_data
 ```
