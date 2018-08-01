@@ -19,5 +19,11 @@ and so on. We filter out stop words in the reducer like `an` and `that`, which w
 Given an HDFS input directory of groupedData (i.e. the output from step 2):
 
 ```
-./run.sh groupedData topic_data
+./run.sh groupedData output
+```
+
+Once the MR job has run, we need to merge the part files into a single file for easier ingestion (into the Distributed Cache) for step 4
+```
+hdfs dfs -getmerge output/* topic_data
+hdfs dfs -put topic_data output/
 ```
