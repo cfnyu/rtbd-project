@@ -27,3 +27,5 @@ aka
 ```
 ./run.sh <inputDir> <outputDir> <cachedFile>
 ```
+
+The final part file was then downloaded locally as `output-data.txt`.
