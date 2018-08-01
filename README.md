@@ -3,7 +3,7 @@
 
 ## Overview
 
-TODO: TAKE THIS FROM THE PAPER
+Programmers alike do not inherently have all the answers when it comes to software and engineering. Thus, popular websites such as Stack Overflow and GitHub provide a platform for engineers to initiate discussions, raise questions, and crowd source answers. This project aims to analyze GitHub commit messages via a traditional word count to create a dated distribution of popular commit topics. We will then use this distribution to apply a weighted search of related Stack Overflow questions. Finally, these dated topics and their corresponding questions will be collated into a simple UI to assist programmers in accelerating their own development process. 
 
 ## Requirements
 
