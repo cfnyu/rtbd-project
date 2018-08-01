@@ -1,5 +1,6 @@
 # Stack Overflow and GitHub Data Analysis
 > Christian Fernandez, cf86@nyu.edu
+
 > Radhika Mattoo, rm3485@nyu.edu
 
 ## Overview
