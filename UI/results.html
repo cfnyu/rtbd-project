@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="utf-8">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    Select a date range<br />
+    <select id="date_range" onchange="triggerDate(this.value)">
+      <option value="Select a Date">Select a Date</option>
+      {% for rng, value in grouped_date_dict.items() %}
+        {% if selected_date == rng %}
+          <option value="{{ rng }}" selected>{{rng}}</option>
+        {% else %}
+          <option value="{{ rng }}">{{rng}}</option>
+        {% endif%}
+      {% endfor %}
+    </select><br />
+    {%  if topics %}
+    Select the corresponding topic<br />
+    <select id="topics" onchange="triggerTopic(this.value)">
+        <option value="Select a Topic">Select a Topic</option>
+        {% for topic_data in topics %}
+          {% for topic, values in topic_data.items() %}
+          {% if selected_topic == topic %}
+          <option value="{{ topic }}" selected>{{topic}}</option>
+          {% else %}
+            <option value="{{ topic }}">{{topic}}</option>
+          {% endif%}
+          
+          {% endfor %}
+          {% endfor %}
+      </select><br />
+    {% endif %}
+    {% if values %}
+      Related Stack Overflow Questions<br />
+      <div>
+          {% for so_id in values %}
+          <a href="https://stackoverflow.com/questions/{{so_id}}">https://stackoverflow.com/questions/{{so_id}}</a><br />
+          {% endfor %}
+      </div>
+    {% endif %}
+  </body>
+  </html>
+  <script>
+    function triggerDate(date){
+      console.log(date);
+      window.location = "http://localhost:5000/" + date;
+    }
+
+    function triggerTopic(topic){
+      console.log(topic);
+      window.location = "http://localhost:5000/{{selected_date}}/" + topic;
+    }
+  </script>
